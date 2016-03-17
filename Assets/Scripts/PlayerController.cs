@@ -23,10 +23,14 @@ public class PlayerController : MonoBehaviour {
     //
     public GameObject laser;
     public GameObject nozzle;
+    private bool laserReady = true;
+    //
+    private Collider2D playerCollider;
 
     // Use this for initialization
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
         count = 0;
         winText.text = "";
         setCountText();
@@ -46,6 +50,8 @@ public class PlayerController : MonoBehaviour {
         // move with left joystick or arrow keys
         float moveHorizontal = Input.GetAxis("Joy" + playerNumber + "X");
         float moveVertical = Input.GetAxis("Joy" + playerNumber + "Y");
+        //countText.text = "moveHorizontal: " + moveHorizontal;
+        //winText.text = "moveVertical: " + moveVertical;
 
         Vector2 movement = new Vector2(moveHorizontal, 0f); // moveVertical);
         rb2d.AddForce(movement * speed);
@@ -68,10 +74,16 @@ public class PlayerController : MonoBehaviour {
         // fire lasers with triggers (0 to -1 is right, to +1 is left)
         float triggerMotion = Input.GetAxis("JoyT" + playerNumber);
         //countText.text = triggerMotion.ToString();
-        if (triggerMotion < -0.5)
+        if (laserReady && triggerMotion < -0.5)
         {
             GameObject laserInstance = (GameObject)Instantiate(laser);
             laserInstance.transform.position = nozzle.transform.position;
+            laserReady = false;
+        }
+
+        if (triggerMotion == 0)
+        {
+            laserReady = true;
         }
     }
 
@@ -82,6 +94,14 @@ public class PlayerController : MonoBehaviour {
             other.gameObject.SetActive(false);
             count++;
             setCountText();
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Physics2D.IgnoreCollision(other.collider, playerCollider);
         }
     }
 
