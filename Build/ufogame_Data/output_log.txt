@@ -1,0 +1,30 @@
+Initialize engine version: 5.3.3f1 (910d71450a97)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.1]
+    Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
+    Vendor:   Intel
+    VRAM:     848 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.200 seconds
+Platform assembly: C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\_work\unityPrac\Unity5\UFO Game\Build\ufogame_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.626302 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2bf8 -> priority: 1 
