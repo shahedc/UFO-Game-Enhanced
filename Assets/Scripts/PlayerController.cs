@@ -6,10 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
     public int playerNumber;
     public float speed;
-    public Text countText;
-    public Text winText;
     private Rigidbody2D rb2d;
-    private int count;
     
     //    
     public float joysensitivityX = 3F;
@@ -31,9 +28,6 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         rb2d = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
-        count = 0;
-        winText.text = "";
-        setCountText();
     }
 
 	// Update is called once per frame, before rendering a frame
@@ -89,11 +83,9 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("PickUp"))
+        if (other.gameObject.CompareTag("Rock"))
         {
             other.gameObject.SetActive(false);
-            count++;
-            setCountText();
         }
     }
 
@@ -103,16 +95,6 @@ public class PlayerController : MonoBehaviour {
         {
             Physics2D.IgnoreCollision(other.collider, playerCollider);
         }
-    }
-
-    void setCountText()
-    {
-        countText.text = "Count: " + count.ToString();
-        if (count >= 12)
-        {
-            winText.text = "You Win!";
-            //SceneManager.LoadScene("Main");
-        }
-    }
+    }   
 
 }

@@ -66,9 +66,11 @@
     <Compile Include="Assets\Completed\Scripts\CompleteCameraController.cs" />
     <Compile Include="Assets\Completed\Scripts\CompletePlayerController.cs" />
     <Compile Include="Assets\Completed\Scripts\CompleteRotator.cs" />
+    <Compile Include="Assets\Scripts\BlackHoleController.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerShoot.cs" />
+    <Compile Include="Assets\Scripts\RockDropper.cs" />
     <Compile Include="Assets\Scripts\Rotator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
