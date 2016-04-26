@@ -67,15 +67,16 @@ public class PlayerController : MonoBehaviour {
 
         // fire lasers with triggers (0 to -1 is right, to +1 is left)
         float triggerMotion = Input.GetAxis("JoyT" + playerNumber);
-        //countText.text = triggerMotion.ToString();
-        if (laserReady && triggerMotion < -0.5)
+        bool firePressed = Input.GetButtonDown("Shoot" + playerNumber);      
+        if (laserReady && firePressed)
         {
             GameObject laserInstance = (GameObject)Instantiate(laser);
             laserInstance.transform.position = nozzle.transform.position;
             laserReady = false;
+            Debug.Log("Shoot: " + playerNumber);
         }
 
-        if (triggerMotion == 0)
+        if (!firePressed)
         {
             laserReady = true;
         }
