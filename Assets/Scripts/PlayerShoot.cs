@@ -3,7 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 
-public class PlayerShoot : MonoBehaviour {
+public class PlayerShoot : MonoBehaviour
+{
+    public int playerNumber;
     public float speed;
     public GameObject scoreText;
     private static int score;
@@ -12,7 +14,7 @@ public class PlayerShoot : MonoBehaviour {
     // Use this for initialization
     void Start () {
         speed = 8f;
-        scoreText = GameObject.Find("ScoreText");
+        scoreText = GameObject.Find("ScoreText" + playerNumber);
         scoreTextObject = scoreText.GetComponent<Text>();
         score = Convert.ToInt32(scoreTextObject.text.ToString());
     }
@@ -22,7 +24,7 @@ public class PlayerShoot : MonoBehaviour {
         if (other.gameObject.CompareTag("Rock"))
         {
             score++;
-            Debug.Log("New Score:" + score);
+            Debug.Log("Player" + playerNumber + " Score:" + score);
             setScoreText();
             var theRock = other.gameObject;
             theRock.SetActive(false);
