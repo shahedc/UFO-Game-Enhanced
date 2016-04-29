@@ -11,6 +11,14 @@ public class PlayerShoot : MonoBehaviour
     private static int score;
     private Text scoreTextObject;
 
+    private AudioSource audioSource;
+    public AudioClip destroySound;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Use this for initialization
     void Start () {
         speed = 8f;
@@ -29,6 +37,9 @@ public class PlayerShoot : MonoBehaviour
             var theRock = other.gameObject;
             theRock.SetActive(false);
             Destroy(theRock);
+
+            audioSource.clip = destroySound;
+            audioSource.Play();
         }
     }
 

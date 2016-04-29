@@ -11,7 +11,11 @@ public class PlayerController : MonoBehaviour {
     public GameObject healthText;
     private Text healthTextObject;
     private Rigidbody2D rb2d;
-    
+
+    private AudioSource audioSource;
+    public AudioClip explosionSound;
+    public AudioClip laserSound;
+
     //    
     public float joysensitivityX = 3F;
     public float joysensitivityY = 3F;
@@ -28,6 +32,11 @@ public class PlayerController : MonoBehaviour {
     //
     private Collider2D playerCollider;
 
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Use this for initialization
     void Start ()
     {
@@ -36,6 +45,7 @@ public class PlayerController : MonoBehaviour {
         health = Convert.ToInt32(healthTextObject.text.ToString());
         rb2d = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
+        
     }
 
 	// Update is called once per frame, before rendering a frame
@@ -82,6 +92,9 @@ public class PlayerController : MonoBehaviour {
             laserInstance.transform.position = nozzle.transform.position;
             laserReady = false;
             Debug.Log("Shoot: " + playerNumber);
+
+            audioSource.clip = laserSound;
+            audioSource.Play();
         }
 
         if (!firePressed)
@@ -97,6 +110,10 @@ public class PlayerController : MonoBehaviour {
             health = health - 5;
             setHealthText();
             other.gameObject.SetActive(false);
+
+            audioSource.clip = explosionSound;
+            audioSource.Play();
+
         }
     }
 
