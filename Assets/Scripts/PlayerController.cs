@@ -2,10 +2,14 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerController : MonoBehaviour {
     public int playerNumber;
     public float speed;
+    public int health;
+    public GameObject healthText;
+    private Text healthTextObject;
     private Rigidbody2D rb2d;
     
     //    
@@ -25,7 +29,11 @@ public class PlayerController : MonoBehaviour {
     private Collider2D playerCollider;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        healthText = GameObject.Find("Health" + playerNumber);
+        healthTextObject = healthText.GetComponent<Text>();
+        health = Convert.ToInt32(healthTextObject.text.ToString());
         rb2d = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
     }
@@ -86,6 +94,8 @@ public class PlayerController : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Rock"))
         {
+            health = health - 5;
+            setHealthText();
             other.gameObject.SetActive(false);
         }
     }
@@ -96,6 +106,18 @@ public class PlayerController : MonoBehaviour {
         {
             Physics2D.IgnoreCollision(other.collider, playerCollider);
         }
-    }   
+    }
+
+    void setHealthText()
+    {
+        try
+        {
+            healthTextObject.text = "" + health.ToString();
+        }
+        catch (NullReferenceException nre)
+        {
+            Debug.Log("Exception:" + nre.Message);
+        }
+    }
 
 }
